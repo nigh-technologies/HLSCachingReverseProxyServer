@@ -24,7 +24,10 @@ open class HLSCachingReverseProxyServer {
   open func start(port: UInt) {
     guard !self.webServer.isRunning else { return }
     self.port = Int(port)
-    self.webServer.start(withPort: port, bonjourName: nil)
+    self.webServer.start(
+      options: [GCDWebServerOption_AutomaticallySuspendInBackground : false],
+      withPort: port, bonjourName: nil
+    )
   }
 
   open func stop() {
