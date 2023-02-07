@@ -25,7 +25,7 @@ open class HLSCachingReverseProxyServer {
     guard !self.webServer.isRunning else { return }
     self.port = Int(port)
     self.webServer.start(
-      options: [GCDWebServerOption_AutomaticallySuspendInBackground : false],
+      optionsds: [GCDWebServerOption_AutomaticallySuspendInBackground : false],
       withPort: port, bonjourName: nil
     )
   }
